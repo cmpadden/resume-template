@@ -1,0 +1,172 @@
+%%% Original Source: http://www.howtotex.com/
+%%% 
+%%% Modified to support Pandoc Templating by cmpadden
+
+%%% Preamble
+%%% ------------------------------------------------------------
+
+\documentclass[paper=a4,fontsize=12pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage[svgnames]{xcolor}
+%\usepackage{geometry}
+    %\textheight=700px
+
+\usepackage[margin=0.75in]{geometry}
+
+\usepackage{url}
+\usepackage{wrapfig}
+
+\frenchspacing
+\pagestyle{empty}
+\usepackage{bbding}
+\usepackage{hyperref}
+
+\usepackage{sectsty}
+\sectionfont{%
+    \sectionrule{0pt}{0pt}{-5pt}{0.25pt}
+}
+
+%%% Macros
+%%% ------------------------------------------------------------
+
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}
+\newcommand{\sepspace}{\vspace*{1em}}
+
+\newcommand{\MyName}[1]{
+        \noindent \textbf{#1}}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[1]{
+        \hfill #1 \par}
+
+\newcommand{\SkillsEntry}[2]{
+        \noindent\hangindent=\dimexpr\spacebox+2em\relax\hangafter=1
+        \makebox[\spacebox][l]{
+        \textit{#1}}
+        #2 \par}
+
+\newcommand{\InterestEntry}[1]{
+        \noindent\hangindent=\dimexpr\spacebox+2em\relax\hangafter=1
+        \makebox[\spacebox][l]{
+        #1} \par}
+
+
+% Arguments
+% #1 - Degree
+% #2 - Subject
+% #3 - Date/Duration
+% #4 - Institute
+% #5 - Location
+% #6 - Distinction
+\newcommand{\SchoolEntry}[6]{
+        \noindent \textbf{#1}, #2 \hfill #3 \par
+        \noindent \textit{#4} \hfill #5 \par
+        \noindent \small #6
+        \normalsize \par}
+      
+
+% Arguments
+%  #1 - Title
+%  #2 - Date
+%  #3 - Employer
+%  #4 - Location
+%  #5 - Relevant Tech
+%  #6 - Description
+\newcommand{\WorkEntry}[6]{                     
+        \noindent \textbf{#1} \hfill #2 \par       
+        \noindent \textit{#3} \hfill #4 \par
+        \noindent \small #5 \par \vspace*{1em}
+        \noindent\hangindent=2em\hangafter=0 \small #6
+        %\small #6
+        \normalsize \par \vspace*{1em}}
+
+%%% ------------------------------------------------------------
+%%% BEGIN DOCUMENT
+%%% ------------------------------------------------------------
+
+\begin{document}
+
+\noindent\begin{minipage}[b]{0.5\textwidth} \Huge \textbf{$information.name$}
+\end{minipage}
+\begin{minipage}[b]{0.5\textwidth} 
+\PersonalEntry{$information.phone$} 
+\PersonalEntry{$information.address.city$}
+\PersonalEntry{\href{mailto:$information.email$}{$information.email$}}
+\PersonalEntry{\href{$information.urls$}{$information.urls$}}
+\end{minipage}
+
+%%% Objective
+%%% ------------------------------------------------------------
+
+$if(objective)$
+\NewPart{Objective}{}
+$objective$
+$endif$
+
+%%% Education
+%%% ------------------------------------------------------------
+
+$if(education)$
+\NewPart{Education}{}
+$for(education)$
+\SchoolEntry{$education.degree$}{$education.subject$}
+            {$education.date$}
+            {$education.institute$}{$education.location$}
+            {$education.distinction$}
+$endfor$
+$endif$
+
+%%% Experience
+%%% ------------------------------------------------------------
+
+$if(experience)$
+\NewPart{Experience}{}
+$for(experience)$
+\WorkEntry{$experience.title$}
+          {$experience.date$}
+          {$experience.employer$}{$experience.location$}
+          {$experience.tech$}
+          {$experience.description$}
+$endfor$
+\vspace*{-1em}
+$endif$
+
+%%% Skills
+%%% ------------------------------------------------------------
+
+$if(skills)$
+\NewPart{Skills}{}
+\SkillsEntry{Languages}{$skills.languages$}
+\SkillsEntry{Tools}{$skills.tools$}
+\SkillsEntry{DevOps}{$skills.devops$}
+\SkillsEntry{Systems}{$skills.systems$}
+$endif$
+
+%%% Activities
+%%% ------------------------------------------------------------
+
+$if(activities)$
+\NewPart{Activities}{}
+$for(activities)$
+\InterestEntry{$activities$}
+$endfor$
+$endif$
+
+%%% Interests
+%%% ------------------------------------------------------------
+
+$if(interests)$
+\NewPart{Interests}{}
+$for(interests)$
+\InterestEntry{$interests$}
+$endfor$
+$endif$
+
+\end{document}
+

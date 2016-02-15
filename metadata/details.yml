@@ -1,0 +1,72 @@
+---
+information:
+  name: First Middle Last
+  address:
+      street: 123 Street Drive
+      city: City, State 00000
+  phone: !!str \(000\) 000-0000
+  email: email@address.com
+  urls: mywebsite.com
+
+objective: >
+
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam 
+   lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra 
+   nec consectetur ante hendrerit. Donec et mollis dolor. 
+
+education:
+- degree: Bachelor of Science
+  subject: Engineering
+  distinction: Magna Cum Laude
+  institute: State University
+  location: City, State
+  date: 0000 - 9999
+
+experience:
+
+- title: Title
+  date: 5000 - Present
+  employer: Employer
+  location: City, State
+  tech: "These, Technologies, Were, Used"
+  description: >
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
+    lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
+    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
+    eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim,
+    ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula
+    ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed,
+    adipiscing id dolor. 
+    
+- title: Title
+  date: 0000 - 5000
+  employer: Employer
+  location: City, State
+  tech: "These, Technologies, Were, Used"
+  description:
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
+    lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
+    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
+    eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim,
+    ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula
+    ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed,
+    adipiscing id dolor. 
+    
+activities:
+  - I Did This
+  - This Too
+
+interests:
+  - I Like This
+  - This Too
+
+skills:
+  languages: These, Are, The, Languages, I, Know
+  tools: These, Are, My, Tools
+  devops: Sometimes, I, Like, Buzzwords
+  systems: Unix, Non-Windows
+---
