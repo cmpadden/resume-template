@@ -22,7 +22,7 @@
 
 \frenchspacing
 \pagestyle{empty}
-\usepackage{bbding}
+%\usepackage{bbding}
 \usepackage{hyperref}
 
 \usepackage{sectsty}
@@ -54,7 +54,7 @@
 \newcommand{\InterestEntry}[1]{
         \noindent\hangindent=\dimexpr\spacebox+2em\relax\hangafter=1
         \makebox[\spacebox][l]{
-        #1} \par}
+        - #1} \par}
 
 
 % Arguments
@@ -65,9 +65,9 @@
 % #5 - Location
 % #6 - Distinction
 \newcommand{\SchoolEntry}[6]{
-        \noindent \textbf{#1}, #2 \hfill #3 \par
+        \noindent \textbf{#1}, #2 \small{(#6)} \hfill #3 \par
         \noindent \textit{#4} \hfill #5 \par
-        \noindent \small #6
+        %\noindent \small #6
         \normalsize \par}
       
 
@@ -97,8 +97,8 @@
 \begin{minipage}[b]{0.5\textwidth} 
 \PersonalEntry{$information.phone$} 
 \PersonalEntry{$information.address.city$}
-\PersonalEntry{\href{mailto:$information.email$}{$information.email$}}
 \PersonalEntry{\href{$information.urls$}{$information.urls$}}
+\PersonalEntry{\href{mailto:$information.email$}{$information.email$}}
 \end{minipage}
 
 %%% Objective
